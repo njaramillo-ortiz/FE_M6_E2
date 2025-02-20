@@ -1,0 +1,66 @@
+[
+    {
+        "key": "drhouse",
+        "value": "drhouse",
+        "text": "Dr. House",
+        "area": "Diagnostico",
+        "years": 8,
+        "desc": "Todo es condicional. Es sólo que no conocemos cuáles son las condiciones."
+    },
+    {
+        "key": "drgrey",
+        "value": "drgrey",
+        "text": "Dra. Grey",
+        "area": "Cirugia",
+        "years": 21,
+        "desc": "Aceptamos los milagros donde sea que los encontremos."
+    },
+    {
+        "key": "drmurphy",
+        "value": "drmurphy",
+        "text": "Dr. Murphy",
+        "area": "Urgencias",
+        "years": 7,
+        "desc": "Aquel fue un buen día. Logramos salvar una vida."
+    },
+    {
+        "key": "drpepper",
+        "value": "drpepper",
+        "text": "Dr. Pepper",
+        "area": "Cirugia",
+        "years": 139,
+        "desc": "Est. 1885. Ahora disponible nuevo sabor Creamy Coconut (normal y zero azúcar)."
+    },
+    {
+        "key": "drdencil",
+        "value": "drdencil",
+        "text": "Dr. Dencil",
+        "area": "Kinesiologia",
+        "years": 12,
+        "desc": "Egresado de la Faculte de Culture Humaine Integrale de Bordeaux, Francia."
+    },
+    {
+        "key": "drpolo",
+        "value": "drpolo",
+        "text": "Dra. Polo",
+        "area": "Pediatria",
+        "years": 23,
+        "desc": "Edúquese lo mas que pueda y respete para que lo respeten."
+    },
+    {
+        "key": "drtv",
+        "value": "drtv",
+        "text": "Dr. TV",
+        "area": "Urgencias",
+        "years": 13,
+        "desc": "Especialista con amplio recorrido en urgencias."
+    },
+    {
+        "key": "drphil",
+        "value": "drphil",
+        "text": "Dr. Phil",
+        "area": "Psicologia",
+        "years": 31,
+        "desc": "No se puede cambiar lo que no se reconoce."
+    }
+]

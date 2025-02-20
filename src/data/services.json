@@ -1,0 +1,37 @@
+[
+    {
+        "key": "cirugia",
+        "value": "cirugia",
+        "text": "Cirugia",
+        "members": 25,
+        "admin": "Dra. Grey"
+    },
+    {
+        "key": "kinesiologia",
+        "value": "kinesiologia",
+        "text": "Kinesiologia",
+        "members": 10,
+        "admin": "Dr. Denzil"
+    },
+    {
+        "key": "urgencias",
+        "value": "urgencias",
+        "text": "Urgencias",
+        "members": 30,
+        "admin": "Dr. Murphy"
+    },
+    {
+        "key": "pediatria",
+        "value": "pediatria",
+        "text": "Pediatria",
+        "members": 5,
+        "admin": "Dra. Polo"
+    },
+    {
+        "key": "psicologia",
+        "value": "psicologia",
+        "text": "Psicologia",
+        "members": 15,
+        "admin": "Dr. Phil"
+    }
+]
