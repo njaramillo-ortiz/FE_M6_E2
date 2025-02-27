@@ -13,20 +13,29 @@ Se utiliza el almaceniamiento en `localStorage` para guardar la información del
 
 ### Implementación de IndexedDB
 
+Se utiliza `IndexedDB` para almacenar las reservas realizadas, las cuales se pueden ver desde la página de Administración entrando como usuario administrador.
+
+#### Para realizar una reserva:
+Iniciar sesión con el usuario de prueba
+- user: juanito
+- pass: juanito
+
+Realizar la reserva seleccionando especialidad y doctor.
+
+#### Para ver reservas almacenadas:
+Iniciar sesión con el usuario administrador:
+- user: admin
+- pass: admin
 
 ### Despliegue y Configuración del Service Worker Personalizado
 
-
+Se despliega y configura el service worker personalizado, incluyendo cache tanto para `IndexedDB` como para `localStorage`.
 
 ### Pruebas de Rendimiento con Lighthouse
 
-
-
 Se ejecutó Lighthouse en modo offline, validando el funcionamiento del service worker y la PWA y obteniendo los siguientes resultados:
-- Performance: 71
-- Accesibility: 98
-- Best Practices: 96
-- SEO: 82
+
+![image](src\images\lighthouse.png)
 
 Requiere Node.js y npm instalados para su uso.
 Desde la raíz del proyecto:

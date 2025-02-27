@@ -54,7 +54,7 @@ export function Navbar(props)
                     }
                     
                     {
-                        (auth.isLogged && !auth.isDoctor) && 
+                        (auth.isLogged && !auth.isDoctor && !auth.isAdmin) && 
                         <MenuItem>
                             <NavLink
                                 to='/reserve'
@@ -70,7 +70,7 @@ export function Navbar(props)
                             <NavLink
                                 to='/admin'
                             >
-                                Administración Sistema
+                                Ver Reservas
                             </NavLink>
                         </MenuItem>
                     }

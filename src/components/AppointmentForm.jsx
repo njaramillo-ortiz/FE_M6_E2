@@ -5,8 +5,14 @@ import { TextInput } from "./TextInput";
 import { DropdownInput } from "./DropdownInput";
 import { RequestError } from "./RequestError";
 import axios from "axios";
+import { addData, initDB, RESERVES_STORE } from "../db";
+import { useAuth } from "../context/AuthContext";
+import { TextDisplay } from "./TextDisplay";
 
 export function AppointmentForm(props) {
+    const auth = useAuth();
+    const [dbReady, setDbReady] = useState(false);
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [phone, setPhone] = useState("");
@@ -33,9 +39,23 @@ export function AppointmentForm(props) {
     const phoneValidation = /^(\+56)?9[0-9]{8}$/;
 
     useEffect(() => {
-        firstNameRef.current.focus();
+        if(auth.isLogged)
+        {
+            setFirstName(auth.user.name);
+            setLastName(auth.user.lastName);
+            setPhone(auth.user.phone);
+            setEmail(auth.user.email);
+        }
+
+        /* firstNameRef.current.focus(); */
         getServices();
+        handleInitDB();
     }, [])
+
+    const handleInitDB = async () => {
+        const status = await initDB();
+        setDbReady(status);
+      };
 
     async function getDoctors(area) {
         setError(null);
@@ -86,10 +106,14 @@ export function AppointmentForm(props) {
 
             <Form onSubmit={() => ConfirmReserve()}>
                 <h1>Formulario de Reserva</h1>
-                <TextInput label="Nombre" placeholder="Juanito" onChange={setFirstName} useRef={firstNameRef} />
+                {/* <TextInput label="Nombre" placeholder="Juanito" onChange={setFirstName} useRef={firstNameRef} />
                 <TextInput label="Apellido" placeholder="Perez" onChange={setLastName} useRef={lastNameRef} />
                 <TextInput label="Teléfono" placeholder="987654321" onChange={setPhone} useRef={phoneRef} />
-                <TextInput label="Correo electrónico" placeholder="jperez@hotmail.com" onChange={setEmail} useRef={emailRef} />
+                <TextInput label="Correo electrónico" placeholder="jperez@hotmail.com" onChange={setEmail} useRef={emailRef} /> */}
+                <TextDisplay label="Nombre" value = {firstName} />
+                <TextDisplay label="Apellido" value = {lastName} />
+                <TextDisplay label="Teléfono" value = {phone} />
+                <TextDisplay label="Correo electrónico" value = {email} />
                 <DropdownInput label="Especialidad" placeholder="Kinesiología" options={areas} onChange={areaSelected} required />
                 <DropdownInput label="Doctor" placeholder="Doctor..." options={doctors} onChange={setDoctor} required />
                 <FormButton type="submit">Reservar Hora</FormButton>
@@ -102,7 +126,7 @@ export function AppointmentForm(props) {
     );
 
     function ConfirmReserve() {
-        if (firstNameRef.current.value == null || firstNameRef.current.value == "") {
+        /* if (firstNameRef.current.value == null || firstNameRef.current.value == "") {
             firstNameRef.current.focus();
             return;
         }
@@ -122,7 +146,7 @@ export function AppointmentForm(props) {
         if (!validatedEmail) {
             emailRef.current.focus();
             return;
-        }
+        } */
 
         if (doctor == null || doctor == "") {
             return;
@@ -136,29 +160,23 @@ export function AppointmentForm(props) {
     }
 
     function ReserveConfirmed() {
-        let db;
-        const request = indexedDB.open("MyTestDatabase");
-
-        request.onerror = (event) => {
-            console.error("Error");
-        };
-
-        request.onsuccess = (event) => {
-            db = event.target.result;
-
-            const objectStore = db.createObjectStore("reservas", {
-                time: Date.now(),
-                firstName: firstNameRef.current.value,
-                lastName: lastNameRef.current.value,
-                phone: phoneRef.current.value,
-                emailRef: emailRef.current.value
-            });
-        };
+        if(dbReady)
+        {
+            addData(RESERVES_STORE, {
+                timestamp: Date.now(),
+                firstName: firstName,
+                lastName: lastName,
+                doctorName: doctor,
+                doctorArea: area,
+                phone: phone,
+                email: email
+            })
+        }
 
         setModalOpen(false);
-        firstNameRef.current.value = null;
+        /* firstNameRef.current.value = null;
         lastNameRef.current.value = null;
         phoneRef.current.value = null;
-        emailRef.current.value = null;
-    }
+        emailRef.current.value = null; */
+    }  
 }

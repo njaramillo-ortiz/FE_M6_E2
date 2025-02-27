@@ -9,8 +9,11 @@
         {
             "username": "juanito",
             "name": "Juanito",
+            "lastName": "Pérez",
             "password": "juanito",
-            "role": "user"
+            "role": "user",
+            "email": "jp@gmail.com",
+            "phone": "999999999"
         },
         {
             "username": "admin",
