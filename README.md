@@ -35,7 +35,7 @@ Se despliega y configura el service worker personalizado, incluyendo cache tanto
 
 Se ejecutó Lighthouse en modo offline, validando el funcionamiento del service worker y la PWA y obteniendo los siguientes resultados:
 
-![image](src\images\lighthouse.png)
+![image](https://raw.githubusercontent.com/njaramillo-ortiz/FE_M6_E2/refs/heads/main/src/images/lighthouse.png)
 
 Requiere Node.js y npm instalados para su uso.
 Desde la raíz del proyecto:
